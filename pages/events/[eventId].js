@@ -5,6 +5,7 @@ import {
   EventLogistics,
   EventSummary,
 } from 'components/event-detail'
+import { ErrorAlert } from 'components/ui'
 
 function EventDetailPage() {
   const {
@@ -14,7 +15,11 @@ function EventDetailPage() {
   const event = getEventById(eventId)
 
   if (!event) {
-    return <p>No event found!</p>
+    return (
+      <ErrorAlert>
+        <p>No event found!</p>
+      </ErrorAlert>
+    )
   }
 
   return (
